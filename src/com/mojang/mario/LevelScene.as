@@ -29,7 +29,7 @@ public class LevelScene extends Scene implements SpriteContext
     public var startTime:int = 0;
     private var timeLeft:int = 0;
   
-    private var levelSeed:Number = 0;
+    private var levelSeed:Number = 0.5;
     private var renderer:MarioComponent;
     private var levelType:int;
     private var levelDifficulty:int;

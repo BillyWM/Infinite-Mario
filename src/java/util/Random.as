@@ -5,26 +5,35 @@ package java.util {
      */
     public class Random {
 
-        public function Random(seed:int=1) {
+		private var Seed:Number = 0.5;
+
+        public function Random(seed:Number = 0) {
+			if (seed == 0) seed = Math.random();
+			Seed = seed;
         }
 
         public function nextBoolean():Boolean {
-            return nextDouble() < 0.5;
+			Seed = nextDouble();
+            return Seed < 0.5;
         }
 
         public function nextInt(n:int):int {
-            return nextDouble() * n;
+            Seed = nextDouble();
+			return int(Seed * n);
         }
 
         /**
          * @return 次のseedになればいい
          */
         public function nextLong():Number {
-            return nextDouble();
+            return Seed = nextDouble();
         }
 
         public function nextDouble():Number {
-            return Math.random();
+			if (Seed <= 0) Seed = 0.0001;
+			if (Seed >= 1) Seed = 0.9999999;
+            return Seed = ((69621 * int(Seed * 0x7FFFFFFF)) % 0x7FFFFFFF) / 0x7FFFFFFF;
+			//return Seed = Math.random();
         }
     }
 }

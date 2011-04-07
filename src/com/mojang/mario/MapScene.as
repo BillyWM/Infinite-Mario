@@ -31,7 +31,7 @@ public class MapScene extends Scene
     private var random:Random;
     private var moveTime:int = 0;
     private var marioComponent:MarioComponent;
-    private var seed:Number = 0;
+    private var seed:Number = 0.5;
     private var worldNumber:int;
 
     private var levelId:int = 0;
@@ -547,7 +547,7 @@ public class MapScene extends Scene
                         Mario.levelString = (worldNumber + 1) + "-";
                         var difficulty:int = worldNumber+1;
                         var type:int = LevelGenerator.TYPE_OVERGROUND;
-                        if (data[x][y] > 1 && new Random(seed + x * 313211 + y * 534321).nextInt(3) == 0)
+                        if (data[x][y] > 1 && new Random(seed + x * 0.313211 + y * 0.534321).nextInt(3) == 0) //billy
                         {
                             type = LevelGenerator.TYPE_UNDERGROUND;
                         }
@@ -575,8 +575,8 @@ public class MapScene extends Scene
                             Mario.levelString += data[x][y];
                         }
 
-                        Art.stopMusic();
-                        marioComponent.startLevel(seed * x * y + x * 31871 + y * 21871, difficulty, type);
+                        Art.stopMusic(); //billy
+                        marioComponent.startLevel(1 / (seed * x * y + x * 31871 + y * 21871), difficulty, type);
                     }
                 }
             }
