@@ -15,7 +15,7 @@ Copyright:
 Images and sounds are copyright Nintendo. You should replace them with original content!
 Code originally by Notch, and released into the public domain (see doc/LICENSE.txt)
 Flash conversion, apparently, also released into the public domain. (see doc/README_ja_JP_utf8.txt)
-I don't speak Japanese, but I believe he said his code is "under the same license" (either that, or he called my mother a whore)
+I don't speak Japanese, but I believe his readme says his code is "under the same license" as the original (either that, or he called your mother a whore)
 
 
 I've uploaded it to make a few tweaks:
