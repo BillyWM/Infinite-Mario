@@ -25,7 +25,9 @@ I've uploaded it to make a few tweaks:
 - Power down on death
 - Levels don't change when you re-enter them
 - Less Bullet Bills, more pits
-- More 1-Ups
+
+I also went ahead and added Buzzy Beetles
+(This code is too abysmal to add any other enemies or more substantial changes, though)
 
 My contributions are also released back into the public domain.
 
