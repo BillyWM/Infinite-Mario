@@ -14,15 +14,12 @@ package com.mycompany {
         public function MyFactory() {
             stop();
             stage.stageFocusRect = false;
-            //stage.scaleMode = StageScaleMode.NO_SCALE;
-            //stage.align = StageAlign.TOP_LEFT;
             addEventListener(Event.ENTER_FRAME, onEnterFrame);
             tf = new TextField();
             addChild(tf);
         }
 
         public function onEnterFrame(event:Event):void {
-            //graphics.clear();
             if (framesLoaded == totalFrames) {
                 removeEventListener(Event.ENTER_FRAME, onEnterFrame);
                 removeChild(tf);
@@ -30,9 +27,6 @@ package com.mycompany {
                 init();
             } else {
                 var percent:Number = root.loaderInfo.bytesLoaded / root.loaderInfo.bytesTotal;
-                //graphics.beginFill(0);
-                //graphics.drawRect(0, stage.stageHeight / 2 - 10, stage.stageWidth * percent, 20);
-                //graphics.endFill();
                 percent = int(100 * percent);
                 tf.text = "Loading... " + percent + "%";
             }

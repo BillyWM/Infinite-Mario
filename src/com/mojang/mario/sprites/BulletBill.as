@@ -136,7 +136,6 @@ public class BulletBill extends JSprite
         {
             if (yD > -height && yD < shell.height)
             {
-                //world.sound.play(Art.samples[Art.SAMPLE_MARIO_KICK], this, 1, 1, 1);
                 Art.samples[Art.SAMPLE_MARIO_KICK].play();
 
                 dead = true;

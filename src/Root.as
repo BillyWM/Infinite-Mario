@@ -7,7 +7,6 @@ package {
     public class Root extends Sprite {
 
         public function Root() {
-            //stage.stageFocusRect = false;
             var a:AppletLauncher = new AppletLauncher();
             addChild(a);
             a.start();

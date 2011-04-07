@@ -210,7 +210,6 @@ public class Mario extends JSprite
             }
             else if (onGround && mayJump)
             {
-////////////////world.sound.play(Art.samples[Art.SAMPLE_MARIO_JUMP], this, 1, 1, 1);
                 Art.samples[Art.SAMPLE_MARIO_JUMP].play();
                 xJumpSpeed = 0;
                 yJumpSpeed = -1.9;
@@ -221,7 +220,6 @@ public class Mario extends JSprite
             }
             else if (sliding && mayJump)
             {
-////////////////world.sound.play(Art.samples[Art.SAMPLE_MARIO_JUMP], this, 1, 1, 1);
                 Art.samples[Art.SAMPLE_MARIO_JUMP].play();
                 xJumpSpeed = -facing * 6.0;
                 yJumpSpeed = -2.0;
@@ -265,7 +263,6 @@ public class Mario extends JSprite
         
         if (keys[KEY_SPEED] && canShoot && Mario.fire && world.fireballsOnScreen<2)
         {
-////////////world.sound.play(Art.samples[Art.SAMPLE_MARIO_FIREBALL], this, 1, 1, 1);
             Art.samples[Art.SAMPLE_MARIO_FIREBALL].play();
             world.addSprite(new Fireball(world, x+facing*6, y-20, facing));
         }
@@ -513,7 +510,6 @@ public class Mario extends JSprite
         if (((Level.TILE_BEHAVIORS[block & 0xff]) & Level.BIT_PICKUPABLE) > 0)
         {
             Mario.getCoin();
-////////////world.sound.play(Art.samples[Art.SAMPLE_GET_COIN], new FixedSoundSource(x * 16 + 8, y * 16 + 8), 1, 1, 1);
             Art.samples[Art.SAMPLE_GET_COIN].play();
             world.level.setBlock(x, y, uint(0));
             for (var xx:int = 0; xx < 2; xx++)
@@ -538,7 +534,6 @@ public class Mario extends JSprite
         var targetY:Number = enemy.y - enemy.height / 2;
         _move(0, targetY - y);
 
-////////world.sound.play(Art.samples[Art.SAMPLE_MARIO_KICK], this, 1, 1, 1);
         Art.samples[Art.SAMPLE_MARIO_KICK].play();
         xJumpSpeed = 0;
         yJumpSpeed = -1.9;
@@ -563,7 +558,6 @@ public class Mario extends JSprite
             var targetY:Number = shell.y - shell.height / 2;
             _move(0, targetY - y);
 
-////////////world.sound.play(Art.samples[Art.SAMPLE_MARIO_KICK], this, 1, 1, 1);
             Art.samples[Art.SAMPLE_MARIO_KICK].play();
             xJumpSpeed = 0;
             yJumpSpeed = -1.9;
@@ -584,7 +578,6 @@ public class Mario extends JSprite
         {
             world.paused = true;
             powerUpTime = -3 * 6;
-////////////world.sound.play(Art.samples[Art.SAMPLE_MARIO_POWER_DOWN], this, 1, 1, 1);
             Art.samples[Art.SAMPLE_MARIO_POWER_DOWN].play();
             if (fire)
             {
@@ -609,7 +602,6 @@ public class Mario extends JSprite
         world.paused = true;
         winTime = 1;
         Art.stopMusic();
-////////world.sound.play(Art.samples[Art.SAMPLE_LEVEL_EXIT], this, 1, 1, 1);
         Art.samples[Art.SAMPLE_LEVEL_EXIT].play();
     }
 
@@ -620,8 +612,8 @@ public class Mario extends JSprite
         world.paused = true;
         deathTime = 1;
         Art.stopMusic();
-////////world.sound.play(Art.samples[Art.SAMPLE_MARIO_DEATH], this, 1, 1, 1);
         Art.samples[Art.SAMPLE_MARIO_DEATH].play();
+		world.mario.setLarge(false, false);
     }
 
 
@@ -633,14 +625,12 @@ public class Mario extends JSprite
         {
             world.paused = true;
             powerUpTime = 3 * 6;
-////////////world.sound.play(Art.samples[Art.SAMPLE_MARIO_POWER_UP], this, 1, 1, 1);
             Art.samples[Art.SAMPLE_MARIO_POWER_UP].play();
             world.mario.setLarge(true, true);
         }
         else
         {
             Mario.getCoin();
-////////////world.sound.play(Art.samples[Art.SAMPLE_GET_COIN], this, 1, 1, 1);
             Art.samples[Art.SAMPLE_GET_COIN].play();
         }
     }
@@ -653,14 +643,12 @@ public class Mario extends JSprite
         {
             world.paused = true;
             powerUpTime = 3 * 6;
-////////////world.sound.play(Art.samples[Art.SAMPLE_MARIO_POWER_UP], this, 1, 1, 1);
             Art.samples[Art.SAMPLE_MARIO_POWER_UP].play();
             world.mario.setLarge(true, false);
         }
         else
         {
             Mario.getCoin();
-////////////world.sound.play(Art.samples[Art.SAMPLE_GET_COIN], this, 1, 1, 1);
             Art.samples[Art.SAMPLE_GET_COIN].play();
         }
     }
@@ -676,7 +664,6 @@ public class Mario extends JSprite
         }
         else
         {
-////////////world.sound.play(Art.samples[Art.SAMPLE_MARIO_KICK], this, 1, 1, 1);
             Art.samples[Art.SAMPLE_MARIO_KICK].play();
             invulnerableTime = 1;
         }
@@ -689,7 +676,6 @@ public class Mario extends JSprite
         var targetY:Number = bill.y - bill.height / 2;
         _move(0, targetY - y);
 
-////////world.sound.play(Art.samples[Art.SAMPLE_MARIO_KICK], this, 1, 1, 1);
         Art.samples[Art.SAMPLE_MARIO_KICK].play();
         xJumpSpeed = 0;
         yJumpSpeed = -1.9;
@@ -720,10 +706,9 @@ public class Mario extends JSprite
 
     public static function get1Up():void
     {
-        ///instance.world.sound.play(Art.samples[Art.SAMPLE_MARIO_1UP], instance, 1, 1, 1);
         Art.samples[Art.SAMPLE_MARIO_1UP].play();
         lives++;
-        if (lives==99)
+        if (lives >= 99)
         {
             lives = 99;
         }
@@ -732,7 +717,7 @@ public class Mario extends JSprite
     public static function getCoin():void
     {
         coins++;
-        if (coins==100)
+        if (coins == 100)
         {
             coins = 0;
             get1Up();

@@ -12,8 +12,6 @@ package com.mojang.mario {
     import java.awt.JGraphics;
     import java.util.Random;
 
-    /**
-     */
     public class MarioComponent extends Sprite {
 
         private var running:Boolean = false;

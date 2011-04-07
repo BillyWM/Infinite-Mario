@@ -75,8 +75,7 @@ public class MapScene extends Scene
         seed = random.nextLong();
         random = new Random(seed);
 
-        while (!generateLevel())
-            ;
+        while (!generateLevel()) {}
         renderStatic(staticGr);
     }
 
@@ -143,8 +142,7 @@ public class MapScene extends Scene
 
         data[lowestX][lowestY] = -2;
 
-        while (findConnection(width, height))
-            ;
+        while (findConnection(width, height)) {}
 
         findCaps(width, height);
 

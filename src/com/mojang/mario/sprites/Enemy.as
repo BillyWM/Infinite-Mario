@@ -54,7 +54,8 @@ public class Enemy extends JSprite
 
         avoidCliffs = type == Enemy.ENEMY_RED_KOOPA;
         
-        noFireballDeath = type == Enemy.ENEMY_SPIKY;
+		//Wrong, Notch! Spikies should die from fire....
+        //noFireballDeath = type == Enemy.ENEMY_SPIKY;
 
         yPic = type;
         if (yPic > 1) height = 12;
@@ -347,7 +348,6 @@ public class Enemy extends JSprite
             {
                 if (noFireballDeath) return true;
                 
-                //world.sound.play(Art.samples[Art.SAMPLE_MARIO_KICK], this, 1, 1, 1);
                 Art.samples[Art.SAMPLE_MARIO_KICK].play();
 
                 xa = fireball.facing * 2;

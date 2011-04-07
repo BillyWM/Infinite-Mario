@@ -13,20 +13,11 @@ public class Recorder
 
     public void addLong(long val)
     {
-////////try
-////////{
             dos.writeLong(val);
-////////}
-////////catch (IOException e)
-////////{
-////////////e.printStackTrace();
-////////}
     }
 
     public void addTick(byte tick)
     {
-////////try
-////////{
             if (tick == lastTick)
             {
                 tickCount++;
@@ -38,25 +29,13 @@ public class Recorder
                 lastTick = tick;
                 tickCount = 1;
             }
-////////}
-////////catch (IOException e)
-////////{
-////////////e.printStackTrace();
-////////}
     }
 
     public byte[] getBytes()
     {
-////////try
-////////{
-            dos.writeInt(tickCount);
-            dos.write(-1);
-            dos.close();
-////////}
-////////catch (IOException e)
-////////{
-////////////e.printStackTrace();
-////////}
+        dos.writeInt(tickCount);
+        dos.write(-1);
+        dos.close();
         return baos.toByteArray();
     }
 }

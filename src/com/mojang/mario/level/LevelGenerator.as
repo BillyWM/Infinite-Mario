@@ -256,7 +256,7 @@ public class LevelGenerator
 
         var keepGoing:Boolean = true;
 
-        var occupied:Array = new Array(length); //Boolean[length];
+        var occupied:Array = new Array(length);
         while (keepGoing)
         {
             h = h - 2 - random.nextInt(3);
@@ -414,7 +414,6 @@ public class LevelGenerator
     {
         if (floor < 1) return;
 
-        // Boolean coins = random.nextInt(3) == 0;
         var rocks:Boolean = true;
 
         addEnemyLine(x0 + 1, x1 - 1, floor - 1);
@@ -477,15 +476,11 @@ public class LevelGenerator
 
         var length:int = x1 - x0 - 2;
 
-        /* if (length > 5 && rocks)
-         {
-         decorate(x0, x1, floor - 4);
-         }*/
     }
 
     private function fixWalls():void
     {
-        var blockMap:Array = new Array(width + 1); // Boolean[width + 1][height + 1];
+        var blockMap:Array = new Array(width + 1);
         for (var x:int = 0; x < width + 1; x++)
         {
             blockMap[x] = new Array(height + 1);
@@ -505,7 +500,6 @@ public class LevelGenerator
         blockify(level, blockMap, width + 1, height + 1);
     }
 
-    // @param blocks Boolean[][] 
     private function blockify(level:Level, blocks:Array, width:int, height:int):void
     {
         var to:int = 0;
@@ -518,7 +512,7 @@ public class LevelGenerator
             to = 4 * 3;
         }
 
-        var b:Array = new Array(2); //Boolean[2][2]; // Boolean[][]
+        var b:Array = new Array(2);
         b[0] = new Array(2);
         b[1] = new Array(2);
 

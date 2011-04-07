@@ -5,7 +5,6 @@ import flash.utils.ByteArray;
 
 public class Level
 {
-    // String[] 
     public static const BIT_DESCRIPTIONS:Array = [
         "BLOCK UPPER", //
         "BLOCK ALL", //
@@ -17,8 +16,7 @@ public class Level
         "ANIMATED",//
     ];
 
-    // uint[]
-    public static var TILE_BEHAVIORS:ByteArray;// = new ByteArray(); // 256
+    public static var TILE_BEHAVIORS:ByteArray;
 
     public static const BIT_BLOCK_UPPER:int = 1 << 0;
     public static const BIT_BLOCK_ALL:int = 1 << 1;
@@ -32,9 +30,9 @@ public class Level
 
     public var width:int;
     public var height:int;
-    public var map:Array;                // ByteArray[]
-    public var data:Array;               // ByteArray[]
-    public var spriteTemplates:Array;    // SpriteTemplate[][]
+    public var map:Array;
+    public var data:Array;
+    public var spriteTemplates:Array;
     public var xExit:int;
     public var yExit:int;
 
@@ -44,9 +42,9 @@ public class Level
         this.height = height;
         xExit = 10;
         yExit = 10;
-        map = new Array(width); //uint[width][height];
-        data = new Array(width); //uint[width][height];
-        spriteTemplates = new Array(width); // SpriteTemplate[width][height];
+        map = new Array(width);
+        data = new Array(width);
+        spriteTemplates = new Array(width);
         for (var i:int = 0; i < width; ++i) {
             map[i] = new Array(height);
             data[i] = new Array(height);
@@ -59,55 +57,10 @@ public class Level
         }
     }
 
-    // @throws IOException
     public static function loadBehaviors(behaviors:ByteArray):void
-    {
-        
-        //dis.readFully(Level.TILE_BEHAVIORS);
+    {     
         TILE_BEHAVIORS = behaviors;
     }
-
-////// @throws IOException
-////public static function saveBehaviors(dos:DataOutputStream):void
-////{
-////////
-////////dos.write(Level.TILE_BEHAVIORS);
-////}
-
-    // @throws IOException
-////public static function load(dis:DataInputStream):Level
-////{
-////////
-////////var header:Number = dis.readLong();
-////////if (header != Level.FILE_HEADER) throw new IOException("Bad level header");
-////////var version:int = dis.read() & 0xff;
-////////var width:int = dis.readShort() & 0xffff;
-////////var height:int = dis.readShort() & 0xffff;
-////////var level:Level = new Level(width, height);
-////////level.map = new uint[width][height];
-////////level.data = new uint[width][height];
-////////for (var i:int = 0; i < width; i++)
-////////{
-////////////dis.readFully(level.map[i]);
-////////////dis.readFully(level.data[i]);
-////////}
-////////return level;
-////}
-
-    // @throws IOException
-////public function save(dos:DataOutputStream):void
-////{
-////////
-////////dos.writeLong(Level.FILE_HEADER);
-////////dos.write(uint(0));
-////////dos.writeShort(int(width));
-////////dos.writeShort(int(height));
-////////for (var i:int = 0; i < width; i++)
-////////{
-////////////dos.write(map[i]);
-////////////dos.write(data[i]);
-////////}
-////}
 
     public function tick():void
     {
