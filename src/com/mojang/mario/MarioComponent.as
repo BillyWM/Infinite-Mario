@@ -24,22 +24,22 @@ package com.mojang.mario {
         }
 
         private function toggleKey(keyCode:int, isPressed:Boolean):void {
-            if (keyCode == 37) {  // KeyboardEvent.VK_LEFT
+            if (keyCode == 37) {
                 scene.toggleKey(Mario.KEY_LEFT, isPressed);
             }
-            if (keyCode == 39) { // KeyboardEvent.VK_RIGHT
+            if (keyCode == 39) {
                 scene.toggleKey(Mario.KEY_RIGHT, isPressed);
             }
-            if (keyCode == 40) {  // KeyboardEvent.VK_DOWN
+            if (keyCode == 40) {
                 scene.toggleKey(Mario.KEY_DOWN, isPressed);
             }
-            if (keyCode == 38) {  // KeyboardEvent.VK_UP
+            if (keyCode == 38) {
                 scene.toggleKey(Mario.KEY_UP, isPressed);
             }
-            if (keyCode == 65) {  // KeyboardEvent.VK_A
+            if (keyCode == 65) {
                 scene.toggleKey(Mario.KEY_SPEED, isPressed);
             }
-            if (keyCode == 83) {  // KeyboardEvent.VK_S
+            if (keyCode == 83) {
                 scene.toggleKey(Mario.KEY_JUMP, isPressed);
             }
         }

@@ -48,6 +48,8 @@ package java.awt {
         }
 
         /**
+			Copy scaled image.
+			"6" probably refers to the 6 parameters in the affine transform matrix?
          */
         public function drawImage6(src:BitmapData, x:int, y:int, w:int, h:int):void {
             // そのまま描けば良いとき(ex.右を向いているマリオ)
@@ -67,6 +69,7 @@ package java.awt {
         }
 
         /** ビットマップイメージを描画
+			(EN: Draw bitmap image)
          */
         public function drawImage(src:BitmapData, x:int, y:int):void {
             // drawよりcopyのほうが高速
@@ -74,18 +77,21 @@ package java.awt {
         }
 
         /** スクロール
+			(EN: Scroll)
          */
         public function copyArea(x:int, y:int, width:int, height:int, dx:int, dy:int):void {
             dst.copyPixels(dst, new Rectangle(x, y, width, height), new Point(x+dx, y+dy));
         }
 
         /** 背景色
+			(EN: Background color)
          */
         public function setBackground(color:uint):void {
             bgcolor = color;
         }
 
         /** 矩形を背景色で塗りつぶす
+			(EN: Fill rectangle with background color)
          */
         public function clearRect(x:int, y:int, w:int, h:int):void {
             dst.fillRect(new Rectangle(x, y, w, h), bgcolor);

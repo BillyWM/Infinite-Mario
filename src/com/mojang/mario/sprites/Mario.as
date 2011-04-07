@@ -30,6 +30,7 @@ public class Mario extends JSprite
     public static const KEY_UP:int = 3;
     public static const KEY_JUMP:int = 4;
     public static const KEY_SPEED:int = 5;
+	public static const KEY_FIRE:int = 6;
 
     private static const GROUND_INERTIA:Number = 0.89;
     private static const AIR_INERTIA:Number = 0.89;

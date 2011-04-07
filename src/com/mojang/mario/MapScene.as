@@ -549,7 +549,7 @@ public class MapScene extends Scene
                         var type:int = LevelGenerator.TYPE_OVERGROUND;
 						//multiplies by arbitrary big values, but we want seeds between 0 - 1, so take the reciprocal
 						//of the big number by taking 1/number - billy
-                        if (data[x][y] > 1 && new Random(1 / (seed + x * 313 + y * 534)).nextInt(4) == 1)
+                        if (data[x][y] > 1 && new Random(1 / (seed + x * 313 + y * 534)).nextInt(2) == 1)
                         {
                             type = LevelGenerator.TYPE_UNDERGROUND;
                         }

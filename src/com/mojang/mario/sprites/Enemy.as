@@ -13,6 +13,10 @@ public class Enemy extends JSprite
     public static const ENEMY_GOOMBA:int = 2;
     public static const ENEMY_SPIKY:int = 3;
     public static const ENEMY_FLOWER:int = 4;
+	public static const ENEMY_BUZZY_BEETLE:int = 5;		//Might not add these...
+	public static const ENEMY_FLYING_CHEEP:int = 6;
+	public static const ENEMY_LAKITU:int = 7;
+	public static const ENEMY_HAMMER_BRO:int = 8;
 
     private static var GROUND_INERTIA:Number = 0.89;
     private static var AIR_INERTIA:Number = 0.89;
@@ -33,7 +37,8 @@ public class Enemy extends JSprite
     public var flyDeath:Boolean = false;
 
     public var avoidCliffs:Boolean = true;
-    private var type:int = 0;
+    public var type:int = 0;
+	public var worth:int = 0;	//points for killing
 
     public var winged:Boolean = true;
     private var wingTime:int = 0;
@@ -52,15 +57,22 @@ public class Enemy extends JSprite
         xPicO = 8;
         yPicO = 31;
 
-        avoidCliffs = type == Enemy.ENEMY_RED_KOOPA;
-        
-		//Wrong, Notch! Spikies should die from fire....
-        //noFireballDeath = type == Enemy.ENEMY_SPIKY;
+        avoidCliffs = (type == Enemy.ENEMY_RED_KOOPA);      
+		noFireballDeath = (type == Enemy.ENEMY_BUZZY_BEETLE);
 
-        yPic = type;
-        if (yPic > 1) height = 12;
+		//Adding new enemies throws off his fragile ordering where enemy # = ypos on the spritesheet
+		//Correct this manually per enemy...
+		switch (type) {
+			case Enemy.ENEMY_BUZZY_BEETLE: yPic = 7; break;
+
+			default: yPic = type;
+		}
+
         facing = dir;
+
+        if (yPic > 1) height = 12;
         if (facing == 0) facing = 1;
+
         this.wPic = 16;
     }
 
@@ -102,6 +114,10 @@ public class Enemy extends JSprite
                         {
                             spriteContext.addSprite(new Shell(world, x, y, 1));
                         }
+						else if (type == Enemy.ENEMY_BUZZY_BEETLE)
+						{
+                            spriteContext.addSprite(new Shell(world, x, y, Enemy.ENEMY_BUZZY_BEETLE));
+						}
                     }
                 }
                 else
@@ -157,11 +173,8 @@ public class Enemy extends JSprite
         }
 
         xa = facing * sideWaysSpeed;
-
         mayJump = (onGround);
-
         xFlipPic = facing == -1;
-
         runTime += (Math.abs(xa)) + 5;
 
         var runFrame:int = int(runTime / 20) % 2;
@@ -318,7 +331,6 @@ public class Enemy extends JSprite
         {
             if (yD > -height && yD < shell.height)
             {
-                //world.sound.play(Art.samples[Art.SAMPLE_MARIO_KICK], this, 1, 1, 1);
                 Art.samples[Art.SAMPLE_MARIO_KICK].play();
 
                 xa = shell.facing * 2;
@@ -346,19 +358,25 @@ public class Enemy extends JSprite
         {
             if (yD > -height && yD < fireball.height)
             {
-                if (noFireballDeath) return true;
+                if (noFireballDeath)
+				{
+					return true;
+				}
+				else
+				{
                 
-                Art.samples[Art.SAMPLE_MARIO_KICK].play();
+	                Art.samples[Art.SAMPLE_MARIO_KICK].play();
 
-                xa = fireball.facing * 2;
-                ya = -5;
-                flyDeath = true;
-                if (spriteTemplate != null) spriteTemplate.isDead = true;
-                deadTime = 100;
-                winged = false;
-                hPic = -hPic;
-                yPicO = -yPicO + 16;
-                return true;
+	                xa = fireball.facing * 2;
+	                ya = -5;
+	                flyDeath = true;
+	                if (spriteTemplate != null) spriteTemplate.isDead = true;
+	                deadTime = 100;
+	                winged = false;
+	                hPic = -hPic;
+	                yPicO = -yPicO + 16;
+	                return true;
+				}
             }
         }
         return false;
@@ -370,7 +388,6 @@ public class Enemy extends JSprite
 
         if (x + width > xTile * 16 && x - width < xTile * 16 + 16 && yTile == int((y - 1) / 16))
         {
-            //world.sound.play(Art.samples[Art.SAMPLE_MARIO_KICK], this, 1, 1, 1);
             Art.samples[Art.SAMPLE_MARIO_KICK].play();
 
             xa = -world.mario.facing * 2;
@@ -393,6 +410,7 @@ public class Enemy extends JSprite
 
             if (type == Enemy.ENEMY_GREEN_KOOPA || type == Enemy.ENEMY_RED_KOOPA)
             {
+				//Do nothing?
             }
             else
             {

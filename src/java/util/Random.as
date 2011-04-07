@@ -33,7 +33,6 @@ package java.util {
 			if (Seed <= 0) Seed = 0.0001;
 			if (Seed >= 1) Seed = 0.9999999;
             return Seed = ((69621 * int(Seed * 0x7FFFFFFF)) % 0x7FFFFFFF) / 0x7FFFFFFF;
-			//return Seed = Math.random();
         }
     }
 }

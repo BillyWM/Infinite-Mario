@@ -82,39 +82,8 @@ package com.mojang.mario {
         [Embed(source='../../../../res/smallmariosheet.png')] private static const Image13:Class;
         [Embed(source='../../../../res/worldmap.png')] private static const Image14:Class;
 
-////////private static var imageMap:Object = new Object();
-
         public static function init():void {
-////////////imageMap["/endscene.gif"] = new Image0().bitmapData;
-////////////imageMap["/font.gif"] = new Image1().bitmapData;
-////////////imageMap["/gameovergost.gif"] = new Image2().bitmapData;
-////////////imageMap["/logo.gif"] = new Image3().bitmapData;
-////////////imageMap["/title.gif"] = new Image4().bitmapData;
-////////////imageMap["/bgsheet.png"] = new Image5().bitmapData;
-////////////imageMap["/enemysheet.png"] = new Image6().bitmapData;
-////////////imageMap["/firemariosheet.png"] = new Image7().bitmapData;
-////////////imageMap["/itemsheet.png"] = new Image8().bitmapData;
-////////////imageMap["/mapsheet.png"] = new Image9().bitmapData;
-////////////imageMap["/mariosheet.png"] = new Image10().bitmapData;
-////////////imageMap["/particlesheet.png"] = new Image11().bitmapData;
-////////////imageMap["/racoonmariosheet.png"] = new Image12().bitmapData;
-////////////imageMap["/smallmariosheet.png"] = new Image13().bitmapData;
-////////////imageMap["/worldmap.png"] = new Image14().bitmapData;
 
-////////////mario = cutImage("/mariosheet.png", 32, 32);
-////////////smallMario = cutImage("/smallmariosheet.png", 16, 16);
-////////////fireMario = cutImage("/firemariosheet.png", 32, 32);
-////////////enemies = cutImage("/enemysheet.png", 16, 32);
-////////////items = cutImage("/itemsheet.png", 16, 16);
-////////////level = cutImage("/mapsheet.png", 16, 16);
-////////////map = cutImage("/worldmap.png", 16, 16);
-////////////particles = cutImage("/particlesheet.png", 8, 8);
-////////////bg = cutImage("/bgsheet.png", 32, 32);
-////////////logo = getImage("/logo.gif");
-////////////titleScreen = getImage("/title.gif");
-////////////font = cutImage("/font.gif", 8, 8);
-////////////endScene = cutImage("/endscene.gif", 96, 96);
-////////////gameOver = cutImage("/gameovergost.gif", 96, 64);
 
             mario = cutImage(new Image10().bitmapData, 32, 32);
             smallMario = cutImage(new Image13().bitmapData, 16, 16);
@@ -154,14 +123,10 @@ package com.mojang.mario {
         }
 
 
-////////private static function getImage(imageName:String):BitmapData { return imageMap[imageName]; }
-////////private static function cutImage(imageName:String, xSize:int, ySize:int):Array {
-
         /**
-         * @return BitmapData[x][y]
+         * Returns an array of BitmapData objects of the specified width and height
          */
         private static function cutImage(source:BitmapData, xSize:int, ySize:int):Array {
-            //var source:BitmapData = getImage(imageName);
             var xx:int = source.width / xSize;
             var yy:int = source.height / ySize;
 

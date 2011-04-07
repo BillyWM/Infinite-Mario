@@ -34,6 +34,10 @@ public class LevelGenerator
     private var totalOdds:int;
     private var difficulty:int;
     private var type:int;
+		 //Types of normal enemies the random generator can place
+	private var enemy_choices:Array = new Array(
+		Enemy.ENEMY_GOOMBA, Enemy.ENEMY_RED_KOOPA, Enemy.ENEMY_GREEN_KOOPA, Enemy.ENEMY_SPIKY, Enemy.ENEMY_BUZZY_BEETLE
+	);
 
     public function LevelGenerator(width:int, height:int)
     {
@@ -45,11 +49,11 @@ public class LevelGenerator
     {
         this.type = type;
         this.difficulty = difficulty;
-        odds[ODDS_STRAIGHT] = 20;
-        odds[ODDS_HILL_STRAIGHT] = 10;
+        odds[ODDS_STRAIGHT] = 14;
+        odds[ODDS_HILL_STRAIGHT] = 8;
         odds[ODDS_TUBES] = 2 + 1 * difficulty;
-        odds[ODDS_JUMP] = 2 * difficulty;
-        odds[ODDS_CANNONS] = -10 + 5 * difficulty;
+        odds[ODDS_JUMP] = 5 + 3 * difficulty;
+        odds[ODDS_CANNONS] = -12 + 4 * difficulty;
 
         if (type != LevelGenerator.TYPE_OVERGROUND)
         {
@@ -150,7 +154,7 @@ public class LevelGenerator
         var jl:int = random.nextInt(2) + 2;
         var length:int = js * 2 + jl;
 
-        var hasStairs:Boolean = random.nextInt(3) == 0;
+        var hasStairs:Boolean = random.nextInt(5) == 0;
 
         var floor:int = height - 1 - random.nextInt(4);
         for (var x:int = xo; x < xo + length; x++)
@@ -325,7 +329,14 @@ public class LevelGenerator
                 }
                 else if (difficulty < 3)
                 {
-                    type = random.nextInt(3);
+                    type = enemy_choices[random.nextInt(4)];
+
+					//Buzzy beetles are only allowed underground, so choose something else in other levels
+					if (type != LevelGenerator.TYPE_UNDERGROUND) {
+						while (type == Enemy.ENEMY_BUZZY_BEETLE) {
+							type = enemy_choices[random.nextInt(4)];
+						}
+					}
                 }
                 level.setSpriteTemplate(x, y, new SpriteTemplate(type, random.nextInt(35) < difficulty));
             }

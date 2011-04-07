@@ -4,9 +4,7 @@ import java.awt.JGraphics;
 import flash.display.BitmapData;
 
 import com.mojang.mario.level.SpriteTemplate;
-//import com.mojang.sonar.SoundSource;
 
-// implements SoundSource
 public class JSprite {
     public static var spriteContext:SpriteContext;
     
@@ -25,7 +23,7 @@ public class JSprite {
     public var yPicO:int = 0;
     public var xFlipPic:Boolean = false;
     public var yFlipPic:Boolean = false;
-    public var sheet:Array;           // Image[][]
+    public var sheet:Array;
     public var visible:Boolean = true;
     
     public var layer:int = 1;
@@ -52,32 +50,6 @@ public class JSprite {
                       yFlipPic ? -hPic : hPic);
     }
     
-/*  private void blit(Graphics og, Image bitmap, int x0, int y0, int x1, int y1, int w, int h)
-    {
-        if (!xFlipPic)
-        {
-            if (!yFlipPic)
-            {
-                og.drawImage(bitmap, x0, y0, x0+w, y0+h, x1, y1, x1+w, y1+h);
-            }
-            else
-            {
-                og.drawImage(bitmap, x0, y0, x0+w, y0+h, x1, y1+h, x1+w, y1);
-            }
-        }
-        else
-        {
-            if (!yFlipPic)
-            {
-                og.drawImage(bitmap, x0, y0, x0+w, y0+h, x1+w, y1, x1, y1+h);
-            }
-            else
-            {
-                og.drawImage(bitmap, x0, y0, x0+w, y0+h, x1+w, y1+h, x1, y1);
-            }
-        }
-    }*/
-
     public function tick():void
     {
         xOld = x;

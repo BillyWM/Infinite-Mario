@@ -24,25 +24,33 @@ public class Shell extends JSprite
     public var dead:Boolean = false;
     private var deadTime:int = 0;
     public var carried:Boolean = false;
+	public var type:int;
 
 
-    public function Shell(world:LevelScene, x:Number, y:Number, type:int)
+    public function Shell(world:LevelScene, x:Number, y:Number, t:int)
     {
         sheet = Art.enemies;
 
         this.x = x;
         this.y = y;
         this.world = world;
+		type = t;
         xPicO = 8;
         yPicO = 31;
-
-        yPic = type;
         height = 12;
         facing = 0;
         wPic = 16;
-
         xPic = 4;
         ya = -5;
+
+		//Adding new enemies throws off his fragile ordering where enemy # = ypos on the spritesheet
+		//Correct this manually per enemy...
+		switch (type) {
+			case Enemy.ENEMY_BUZZY_BEETLE: yPic = 7; break;
+
+			default: yPic = type;
+		}
+
     }
     
     override public function fireballCollideCheck(fireball:Fireball):Boolean
@@ -52,13 +60,14 @@ public class Shell extends JSprite
         var xD:Number = fireball.x - x;
         var yD:Number = fireball.y - y;
 
+		//First check X and Y for collision
         if (xD > -16 && xD < 16)
         {
             if (yD > -height && yD < fireball.height)
             {
                 if (facing!=0) return true;
+				if (type == Enemy.ENEMY_BUZZY_BEETLE) return true;
                 
-//world.sound.play(Art.samples[Art.SAMPLE_MARIO_KICK], this, 1, 1, 1);
                 Art.samples[Art.SAMPLE_MARIO_KICK].play();
 
                 xa = fireball.facing * 2;
@@ -178,7 +187,6 @@ public class Shell extends JSprite
 
         if (!_move(xa, 0))
         {
-            //world.sound.play(Art.samples[Art.SAMPLE_SHELL_BUMP], this, 1, 1, 1);
             Art.samples[Art.SAMPLE_SHELL_BUMP].play();
 
             facing = -facing;

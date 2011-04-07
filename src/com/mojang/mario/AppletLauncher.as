@@ -15,21 +15,15 @@ package com.mojang.mario {
                 started = true;
                 mario = new MarioComponent(640, 480);
                 addChild(mario); //setContentPane(mario);
-                //setFocusable(false);
-                //mario.setFocusCycleRoot(true);
 
                 mario.start();
-                // addKeyListener(mario);
-                // addFocusListener(mario);
             }
         }
 
         public function stop():void {
             if (started) {
                 started = false;
-                // removeKeyListener(mario);
                 mario.stop();
-                // removeFocusListener(mario);
             }
         }
     }
