@@ -547,7 +547,9 @@ public class MapScene extends Scene
                         Mario.levelString = (worldNumber + 1) + "-";
                         var difficulty:int = worldNumber+1;
                         var type:int = LevelGenerator.TYPE_OVERGROUND;
-                        if (data[x][y] > 1 && new Random(seed + x * 0.313211 + y * 0.534321).nextInt(3) == 0) //billy
+						//multiplies by arbitrary big values, but we want seeds between 0 - 1, so take the reciprocal
+						//of the big number by taking 1/number - billy
+                        if (data[x][y] > 1 && new Random(1 / (seed + x * 313 + y * 534)).nextInt(4) == 1)
                         {
                             type = LevelGenerator.TYPE_UNDERGROUND;
                         }
@@ -575,7 +577,8 @@ public class MapScene extends Scene
                             Mario.levelString += data[x][y];
                         }
 
-                        Art.stopMusic(); //billy
+                        Art.stopMusic();
+						//Same reciprocal trick as before - Billy
                         marioComponent.startLevel(1 / (seed * x * y + x * 31871 + y * 21871), difficulty, type);
                     }
                 }

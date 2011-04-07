@@ -283,6 +283,7 @@ public class LevelScene extends Scene implements SpriteContext
 
     private var df:DecimalFormat = new DecimalFormat("00");
     private var df2:DecimalFormat = new DecimalFormat("000");
+	private var df3:DecimalFormat = new DecimalFormat("00000000");
 
     override public function render(g:JGraphics, alpha:Number):void
     {
@@ -320,7 +321,7 @@ public class LevelScene extends Scene implements SpriteContext
         layer.renderExit1(g, _tick, paused?0:alpha);
         
         drawStringDropShadow(g, "MARIO " + df.format(Mario.lives), 0, 0, 7);
-        drawStringDropShadow(g, "00000000", 0, 1, 7);
+        drawStringDropShadow(g, "" + df3.format(Mario.score), 0, 1, 7);
         
         drawStringDropShadow(g, "COIN", 14, 0, 7);
         drawStringDropShadow(g, " "+df.format(Mario.coins), 14, 1, 7);

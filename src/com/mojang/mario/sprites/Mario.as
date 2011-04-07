@@ -11,6 +11,7 @@ public class Mario extends JSprite
     public static var fire:Boolean = false;
     public static var coins:int = 0;
     public static var lives:int = 3;
+	public static var score:int = 0;
     public static var levelString:String = "none";
 
     public static function resetStatic():void
@@ -19,6 +20,7 @@ public class Mario extends JSprite
         fire = false;
         coins = 0;
         lives = 3;
+		score = 0;
         levelString = "none";
     }
 
@@ -567,6 +569,8 @@ public class Mario extends JSprite
             sliding = false;
             invulnerableTime = 1;
         }
+
+		Mario.score += 200;
     }
 
     public function getHurt():void
@@ -630,9 +634,10 @@ public class Mario extends JSprite
         }
         else
         {
-            Mario.getCoin();
+            //Mario.getCoin();
             Art.samples[Art.SAMPLE_GET_COIN].play();
         }
+		Mario.score += 1000;
     }
 
     public function getMushroom():void
@@ -648,9 +653,10 @@ public class Mario extends JSprite
         }
         else
         {
-            Mario.getCoin();
+            //Mario.getCoin();
             Art.samples[Art.SAMPLE_GET_COIN].play();
         }
+		Mario.score += 1000;
     }
 
     public function kick(shell:Shell):void
@@ -717,6 +723,7 @@ public class Mario extends JSprite
     public static function getCoin():void
     {
         coins++;
+		Mario.score += 200;
         if (coins == 100)
         {
             coins = 0;

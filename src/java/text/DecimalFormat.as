@@ -9,7 +9,7 @@ package java.text {
         }
 
         public function format(n:Number):String {
-            var s:String = "0" + n;
+            var s:String = "00000000" + n;
             return s.substring(s.length - fmt.length);
         }
     }
