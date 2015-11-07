@@ -4,13 +4,13 @@ Converted from Java to AS3 by a Japanese programmer known only - as far as I can
 
 Notch:
 
-	[http://www.mojang.com/notch/mario/](http://www.mojang.com/notch/mario/)
+[http://www.mojang.com/notch/mario/](http://www.mojang.com/notch/mario/)
 	
 Flashrod:
 
-	[http://space.geocities.jp/flashr0d/](http://space.geocities.jp/flashr0d/)
+[http://space.geocities.jp/flashr0d/](http://space.geocities.jp/flashr0d/)
 	
-	[http://d.hatena.ne.jp/flashrod/20061209](http://d.hatena.ne.jp/flashrod/20061209)
+[http://d.hatena.ne.jp/flashrod/20061209](http://d.hatena.ne.jp/flashrod/20061209)
 
 Copyright:
 
