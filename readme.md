@@ -4,15 +4,13 @@ Converted from Java to AS3 by a Japanese programmer known only - as far as I can
 
 Notch:
 
-	http://www.mojang.com/notch/mario/
+	[http://www.mojang.com/notch/mario/](http://www.mojang.com/notch/mario/)
 	
 Flashrod:
 
-	http://space.geocities.jp/flashr0d/
+	[http://space.geocities.jp/flashr0d/](http://space.geocities.jp/flashr0d/)
 	
-	http://d.hatena.ne.jp/flashrod/20061209
-
-
+	[http://d.hatena.ne.jp/flashrod/20061209](http://d.hatena.ne.jp/flashrod/20061209)
 
 Copyright:
 
@@ -20,7 +18,7 @@ Images and sounds are copyright Nintendo. You should replace them with original 
 
 Code originally by Notch, and released into the public domain (see [doc/LICENSE.txt](doc/LICENSE.txt))
 
-Flash conversion, apparently, also released into the public domain. (see [doc/README_ja_JP_utf8.txt](doc/README_ja_JP_utf8.txt]))
+Flash conversion, apparently, also released into the public domain. (see [doc/README_ja_JP_utf8.txt](doc/README_ja_JP_utf8.txt))
 
 I don't speak Japanese, but I believe his readme says his code is "under the same license" as the original
 
