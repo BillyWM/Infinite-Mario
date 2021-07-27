@@ -1,3 +1,13 @@
+# 2021
+
+Notch is a complete and utter massive shithead. But I'll be keeping this code up anyway
+
+- William Wenge-Murphy, 2021
+
+Original readme follows
+
+------------------------------------
+
 A copy of the code for "Infinite Mario Brothers".
 Originally written by Markus "Notch" Persson (a.k.a the Minecraft guy).
 Converted from Java to AS3 by a Japanese programmer known only - as far as I can tell - as "Flashrod"
@@ -31,7 +41,6 @@ I've uploaded it to make a few tweaks:
 - Power down on death
 - Less Bullet Bills, more pits
 - Buzzy Beetles
-
 
 My contributions are also released back into the public domain.
 
