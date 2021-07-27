@@ -1,10 +1,10 @@
 # 2021
 
-Notch is a complete and utter massive shithead. But I'll be keeping this code up anyway
+Notch is a complete and utter massive shithead. But I'll be keeping this code up anyway. Historical reasons or whatever. Some people starred and forked and I don't want to yank the rug out from under them.
 
-- William Wenge-Murphy, 2021
+Original readme follows. Links all dead now. Updated to Wayback Machine copies.
 
-Original readme follows
+\- [William Wenge-Murphy](https://billy.wenge-murphy.com/), 2021
 
 ------------------------------------
 
@@ -14,13 +14,13 @@ Converted from Java to AS3 by a Japanese programmer known only - as far as I can
 
 Notch:
 
-[http://www.mojang.com/notch/mario/](http://www.mojang.com/notch/mario/)
+[http://www.mojang.com/notch/mario/](https://web.archive.org/web/20110714111133/http://www.mojang.com/notch/mario/)
 	
 Flashrod:
 
-[http://space.geocities.jp/flashr0d/](http://space.geocities.jp/flashr0d/)
+[http://space.geocities.jp/flashr0d/](https://web.archive.org/web/20110517052219/https://space.geocities.jp/flashr0d/)
 	
-[http://d.hatena.ne.jp/flashrod/20061209](http://d.hatena.ne.jp/flashrod/20061209)
+[http://d.hatena.ne.jp/flashrod/20061209](https://web.archive.org/web/20101024032028/http://d.hatena.ne.jp/flashrod/20061209)
 
 Copyright:
 
